@@ -407,9 +407,10 @@ def passmap_player(df_pass,player,oponente):
     st.pyplot(fig)
 
 #-----------------GRAFICO DE BARRAS APILADAS VARIAS -------------
-def barras_apiladas(df, x_col, subtypes, titulo):    
+def barras_apiladas(df, x_col, fases_select,subtypes, titulo):    
     # 1. Filtramos los datos vacíos
-    df_filtrado = df[df[subtypes] != '-']
+    #df_filtrado = df[df[subtypes] != '-']
+    df_filtrado = df[df.Fase.isin(fases_select)]
 
     # 2. Agrupamos los datos para sumar las ocurrencias
     # .size() cuenta las filas, .reset_index() lo convierte de nuevo en DataFrame
