@@ -34,13 +34,13 @@ if choice2 == 'Estadísticas':
         #st.subheader("Gráfico Ataque")
         fig1, ax1 = plt.subplots()
         ax1.plot([1, 2, 3], [10, 20, 10])
-        barras_apiladas(df, 'Fase', ['Ataque', 'Tran. Defensa - Ataque'],'output', "Resultado por fases")
+        barras_apiladas(df, 'Event', ['Ataque', 'Tran. Defensa - Ataque'],'output', "Resultado por fases")
 
     with col2:
         #st.subheader("Gráfico B")
         fig2, ax2 = plt.subplots()
         ax2.bar(['X', 'Y', 'Z'], [5, 15, 7])
-        barras_apiladas(df, 'Fase', ['Defensa', 'Tran. Ataque - Defensa'],'output', "Resultado por fases")
+        barras_apiladas(df, 'Event', ['Defensa', 'Tran. Ataque - Defensa'],'output', "Resultado por fases")
 
     mostrar_tablas_zonas(df)
 

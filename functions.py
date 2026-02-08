@@ -410,7 +410,7 @@ def passmap_player(df_pass,player,oponente):
 def barras_apiladas(df, x_col, fases_select,subtypes, titulo):    
     # 1. Filtramos los datos vacíos
     df_filtrado = df[df.output != '-']
-    df_filtrado = df_filtrado[df_filtrado.Fase.isin(fases_select)]
+    df_filtrado = df_filtrado[df_filtrado.Event.isin(fases_select)]
 
     # 2. Agrupamos los datos para sumar las ocurrencias
     # .size() cuenta las filas, .reset_index() lo convierte de nuevo en DataFrame
@@ -449,7 +449,7 @@ def tipo_tiros_goles(df):
         if fase in en_contra: return 'En Contra'
         return 'Otro'
 
-    df_tiros['Direccion'] = df_tiros['Fase'].apply(definir_direccion)
+    df_tiros['Direccion'] = df_tiros['Event'].apply(definir_direccion)
 
     # 3. Simplificar las Fases (Agrupación para el color)
     mapa_fases = {
@@ -461,7 +461,7 @@ def tipo_tiros_goles(df):
         'ABP en contra': 'ABP'
     }
     
-    df_tiros['Fase_Simple'] = df_tiros['Fase'].map(mapa_fases)
+    df_tiros['Fase_Simple'] = df_tiros['Event'].map(mapa_fases)
 
     # 4. Agrupar para el conteo final
     df_plot = df_tiros.groupby(['Direccion', 'Fase_Simple']).size().reset_index(name='Cantidad')
@@ -496,7 +496,7 @@ def mostrar_tablas_zonas(df):
         st.subheader(f"Comportamiento en {fase} por Zona")
         
         # 1. Filtramos el DataFrame por la fase actual
-        df_filtrado = df[df['Fase'] == fase]
+        df_filtrado = df[df['Event'] == fase]
         
         if df_filtrado.empty:
             st.info(f"No hay datos para la fase: {fase}")
