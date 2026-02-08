@@ -409,7 +409,7 @@ def passmap_player(df_pass,player,oponente):
 #-----------------GRAFICO DE BARRAS APILADAS VARIAS -------------
 def barras_apiladas(df, x_col, fases_select,subtypes, titulo):    
     # 1. Filtramos los datos vacíos
-    df_filtrado = df[df[subtypes] != '-']
+    df_filtrado = df[df.output != '-']
     df_filtrado = df[df.Fase.isin(fases_select)]
 
     # 2. Agrupamos los datos para sumar las ocurrencias
@@ -493,10 +493,10 @@ def mostrar_tablas_zonas(df):
     df.columns = [col.strip() for col in df.columns]
     
     # Lista de las fases que queremos analizar
-    fases_interes = ['Ataque', 'Tran. Defensa - Ataque']
+    fases_interes = ['Ataque', 'Tran. Defensa - Ataque', 'Defensa', 'Tran. Ataque - Defensa']
     
     for fase in fases_interes:
-        st.subheader(f"Distribución por Zona: {fase}")
+        st.subheader(f"Comportamiento en {fase} por Zona")
         
         # 1. Filtramos el DataFrame por la fase actual
         df_filtrado = df[df['Fase'] == fase]
