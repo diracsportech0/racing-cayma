@@ -441,8 +441,8 @@ def tipo_tiros_goles(df):
     df_tiros = df[df['output'].isin(['Ocasión', 'Ocasión rival'])].copy()
 
     # 2. Definir la dirección (Eje X: A favor vs En contra)
-    en_contra = ['Tran. Ataque - Defensa', 'Defensa', 'TL en contra', 'Corner en contra']
-    a_favor = ['Tran. Defensa - Ataque', 'Ataque', 'Tiro libre', 'Corner']
+    en_contra = ['Tran. Ataque - Defensa', 'Defensa', 'ABP en contra']
+    a_favor = ['Tran. Defensa - Ataque', 'Ataque', 'ABP a favor']
 
     def definir_direccion(fase):
         if fase in a_favor: return 'A Favor'
