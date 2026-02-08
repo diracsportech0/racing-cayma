@@ -29,6 +29,7 @@ choice = st.sidebar.radio("Submenú - Análisis", menu_analisis, 0) #el 0 es el 
 df_players = df.copy()
 # ------------------- ANALISIS: EQUIPO ------
 if choice == 'Equipo':
+    df = df[df.action_type=='colectivo']
     # Barra lateral
     #RIVAL
     rivales = df.Rival.unique()
