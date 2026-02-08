@@ -25,7 +25,7 @@ with colY:pass
 with colZ:st.image('logo-piad.png', use_column_width=True)
 #------------ 1. MENU LATERAL
 menu_analisis = ['Equipo','Jugadores']
-choice = st.sidebar.radio("Submenú - Análisis", menu_analisis, 0) #el 0 es el indice de la opcion por defecto
+choice = st.sidebar.radio("SUBMENÚ", menu_analisis, 0) #el 0 es el indice de la opcion por defecto
 df_players = df.copy()
 # ------------------- ANALISIS: EQUIPO ------
 if choice == 'Equipo':

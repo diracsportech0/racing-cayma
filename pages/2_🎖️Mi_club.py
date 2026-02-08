@@ -20,28 +20,46 @@ with colC:st.image('logo-piad.png', use_column_width=True)
 #df = df[df['etapa'] != 'provincial'] #estamos obviando los partidos de la provincial
 
 
+#ETAPA DE JUEGO
+ataque = ['Ataque', 'Tran. Defensa - Ataque']
+defensa= ['Defensa', 'Tran. Ataque - Defensa']
+
 #------------ 1. MENU LATERAL
 menu_miclub = ['Informe de partido','Informe acumulado']
 choice2 = st.sidebar.radio("Submenú - Miclub", menu_miclub, 0)
 
 if choice2 == 'Informe de partido':
 
-    col1, col2 = st.columns(2)
-    with col1:
-        #st.subheader("Gráfico Ataque")
-        fig1, ax1 = plt.subplots()
-        ax1.plot([1, 2, 3], [10, 20, 10])
-        barras_apiladas(df, 'Event', ['Ataque', 'Tran. Defensa - Ataque'],'output', "Resultado por fases")
+    etapas_juego = ['Ataque', 'Defensa']
 
-    with col2:
-        #st.subheader("Gráfico B")
-        fig2, ax2 = plt.subplots()
-        ax2.bar(['X', 'Y', 'Z'], [5, 15, 7])
-        barras_apiladas(df, 'Event', ['Defensa', 'Tran. Ataque - Defensa'],'output', "Resultado por fases")
+    menu_subinforme = st.sidebar.selectbox(
+        "Etapa de juego",
+        etapas_juego,
+        'Ataque')
 
-    mostrar_tablas_zonas(df)
+    if menu_subinforme == 'Ataque':
+        col1, col2 = st.columns(2)
+        with col1:
+            #st.subheader("Gráfico Ataque")
+            fig1, ax1 = plt.subplots()
+            ax1.plot([1, 2, 3], [10, 20, 10])
+            barras_apiladas(df, 'Event', ataque,'output', "")
+        with col2:
+            tipo_tiros_goles(df,'Ocasión')
+        
+        mostrar_tablas_zonas(df, ataque)
 
-    tipo_tiros_goles(df)
+    if menu_subinforme == 'Defensa':
+        col1, col2 = st.columns(2)
+        with col1:
+            #st.subheader("Gráfico Ataque")
+            fig1, ax1 = plt.subplots()
+            ax1.plot([1, 2, 3], [10, 20, 10])
+            barras_apiladas(df, 'Event', defensa,'output', "")
+        with col2:
+            tipo_tiros_goles(df,'Ocasión rival')
+        
+        mostrar_tablas_zonas(df, defensa)
 
 
 if choice2 == 'Informe acumulado':
