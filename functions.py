@@ -457,10 +457,8 @@ def tipo_tiros_goles(df):
         'Tran. Defensa - Ataque': 'Transicion',
         'Ataque': 'Elaborado',
         'Defensa': 'Elaborado',
-        'Corner': 'Corner',
-        'Corner en contra': 'Corner',
-        'Tiro libre': 'Tiro Libre',
-        'TL en contra': 'Tiro Libre'
+        'ABP a favor': 'ABP',
+        'ABP en contra': 'ABP'
     }
     
     df_tiros['Fase_Simple'] = df_tiros['Fase'].map(mapa_fases)
@@ -480,8 +478,7 @@ def tipo_tiros_goles(df):
         color_discrete_map={
             'Transicion': '#FFA500', # Naranja
             'Elaborado': '#1f77b4',   # Azul
-            'Corner': '#2ca02c',     # Verde
-            'Tiro Libre': '#d62728'  # Rojo
+            'ABP': '#2ca02c',     # Verde
         }
     )
 
