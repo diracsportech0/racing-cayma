@@ -472,7 +472,7 @@ def tipo_tiros_goles(df):
         x='Direccion',
         y='Cantidad',
         color='Fase_Simple',
-        title="Análisis de Tiros y Goles: A Favor vs En Contra",
+        title="Análisis de Ocasiones: A Favor vs En Contra",
         barmode='stack',
         text='Cantidad',
         color_discrete_map={
