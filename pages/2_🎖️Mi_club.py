@@ -8,7 +8,7 @@ from mplsoccer import (VerticalPitch, Pitch, create_transparent_cmap,
 
 #from Home_page import name_club, id_club
 from etl import df #df_tipo1, df_tipo2
-from functions import barras_apiladas, grafico_tiros_goles, mostrar_tablas_zonas
+from functions import barras_apiladas, tipo_tiros_goles, mostrar_tablas_zonas
 
 
 #url_powerbi = '<iframe title="Plataforma Dirac v1.1" width="900" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiOWM0YmNkMGEtMzc4Ni00MTI4LTk0OGEtZmFhNzc5NTZiYTkxIiwidCI6IjBlMGNiMDYwLTA5YWQtNDlmNS1hMDA1LTY4YjliNDlhYTFmNiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>'
@@ -29,7 +29,7 @@ choice2 = st.sidebar.radio("Submenú - Miclub", menu_miclub, 0)
 
 if choice2 == 'Estadísticas':
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     with col1:
         #st.subheader("Gráfico Ataque")
         fig1, ax1 = plt.subplots()
@@ -42,16 +42,9 @@ if choice2 == 'Estadísticas':
         ax2.bar(['X', 'Y', 'Z'], [5, 15, 7])
         barras_apiladas(df, 'Fase', ['Defensa', 'Tran. Ataque - Defensa'],'output', "Resultado por fases")
 
-    with col3:
-        #st.subheader("Gráfico C")
-        fig3, ax3 = plt.subplots()
-        ax3.scatter(np.random.randn(10), np.random.randn(10))
-        barras_apiladas(df, 'Fase', ['ABP a favor', 'ABP en contra'],'output', "Resultado por fases")
+    mostrar_tablas_zonas(df)
 
-
-    #mostrar_tablas_zonas(df)
-
-    #grafico_tiros_goles(df)
+    tipo_tiros_goles(df)
 
 
 if choice2 == 'Videos':

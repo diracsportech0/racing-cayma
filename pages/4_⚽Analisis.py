@@ -88,6 +88,10 @@ if choice == 'Equipo':
             'Pérdida': '#AD1D00',
             'Progresión': '#C78B08',
             'Ocasión': '#102C9C',
+
+            'Ocasión rival': '#AD1D00',
+            'Progresión riv.':'#FA6019',
+            'Recuperación': '#102C9C',
         },
         title=f'{menu_fases} en {menu_match} <br> ➜', hover_data=['time','Nota']
     )

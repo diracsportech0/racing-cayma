@@ -409,7 +409,7 @@ def passmap_player(df_pass,player,oponente):
 #-----------------GRAFICO DE BARRAS APILADAS VARIAS -------------
 def barras_apiladas(df, x_col, fases_select,subtypes, titulo):    
     # 1. Filtramos los datos vacíos
-    #df_filtrado = df[df[subtypes] != '-']
+    df_filtrado = df[df[subtypes] != '-']
     df_filtrado = df[df.Fase.isin(fases_select)]
 
     # 2. Agrupamos los datos para sumar las ocurrencias
@@ -436,9 +436,9 @@ def barras_apiladas(df, x_col, fases_select,subtypes, titulo):
 
 #------------------------------ GRAFICO DE BARRAS DE TIRO
 
-def grafico_tiros_goles(df):
+def tipo_tiros_goles(df):
     # 1. Filtrar solo filas donde Nota sea 'Tiro' o 'GOL'
-    df_tiros = df[df['Nota'].isin(['Tiro', 'GOL'])].copy()
+    df_tiros = df[df['output'].isin(['Ocasión', 'Ocasión rival'])].copy()
 
     # 2. Definir la dirección (Eje X: A favor vs En contra)
     en_contra = ['Tran. Ataque - Defensa', 'Defensa', 'TL en contra', 'Corner en contra']
