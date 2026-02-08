@@ -482,6 +482,7 @@ def tipo_tiros_goles(df,output):
         }
     )
 
+    fig.update_xaxes(title_text='')
     st.plotly_chart(fig, use_container_width=True)
 
 ##----------- TABLA DE DOBLE ENTRADA------

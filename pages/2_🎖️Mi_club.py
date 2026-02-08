@@ -43,7 +43,7 @@ if choice2 == 'Informe de partido':
             #st.subheader("Gráfico Ataque")
             fig1, ax1 = plt.subplots()
             ax1.plot([1, 2, 3], [10, 20, 10])
-            barras_apiladas(df, 'Event', ataque,'output', "")
+            barras_apiladas(df, 'Event', ataque,'output', "Resumen por fase")
         with col2:
             tipo_tiros_goles(df,'Ocasión')
         
@@ -55,7 +55,7 @@ if choice2 == 'Informe de partido':
             #st.subheader("Gráfico Ataque")
             fig1, ax1 = plt.subplots()
             ax1.plot([1, 2, 3], [10, 20, 10])
-            barras_apiladas(df, 'Event', defensa,'output', "")
+            barras_apiladas(df, 'Event', defensa,'output', "Resumen por fase")
         with col2:
             tipo_tiros_goles(df,'Ocasión rival')
         
