@@ -35,7 +35,7 @@ if choice2 == 'Informe de partido':
     menu_subinforme = st.sidebar.selectbox(
         "Etapa de juego",
         etapas_juego,
-        'Ataque')
+        0)
 
     if menu_subinforme == 'Ataque':
         col1, col2 = st.columns(2)
