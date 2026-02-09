@@ -7,7 +7,7 @@ from functions import player_passmap,graph_barras, heat_map
 #----------------------
 
 #MENU LATERAL
-players = set(df['player'].values)
+players = set(df_pass['player'].values)
 player = st.sidebar.selectbox(
         "Jugador",
         players,
